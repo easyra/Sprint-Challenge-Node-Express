@@ -2,10 +2,11 @@ const express = require("express")
 const actionModelDb = require("./data/helpers/actionModel.js")
 const projectModelDb = require("./data/helpers/projectModel.js")
 const mappersDb = require("./data/helpers/mappers.js")
+const cors = require("cors")
 
 const port = 7000
 const server = express()
-server.use(express.json())
+server.use(express.json(), cors())
 
 
 
