@@ -2,9 +2,9 @@ import React from 'react'
 
 const ProjectCard = props => {
     const {project} = props
-    const {name, description} = project
+    const {name, description, id} = project
     return (
-        <div>
+        <div onClick={() => props.history.push(`/projects/${id}`)}>
             <h2>{name}</h2>
             <p>{description}</p>
         </div>

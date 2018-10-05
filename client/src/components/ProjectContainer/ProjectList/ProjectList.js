@@ -6,7 +6,7 @@ const ProjectList = props => {
     const {projects} = props.projects ? props:{projects:[]}
     return(
         <div>
-            {projects.map(project => <ProjectCard project={project}/>)}
+            {projects.map(project => <ProjectCard project={project} {...props}/>)}
         </div>
     )
 }
