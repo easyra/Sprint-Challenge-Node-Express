@@ -52,7 +52,7 @@ server.delete(`/api/actions/:actionId`, (req,res) => {
         actionModelDb.get().then(actions => {
             res.json(actions)
         })
-    })
+    }).catch(err = console.log(err))
 
 })
 
