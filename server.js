@@ -28,9 +28,22 @@ server.get('/api/projects/actions/:projectId', (req,res) => {
         res.status(200).json(projectActions)
     }).catch(err => console.log(err))
 })
+server.post('/api/actions', (req,res) => {
+    const {project_id, description, notes, completed} = req.body;
+    actionModelDb.insert({project_id, description, notes, completed}).then(() =>{
+        actionModelDb.get().then(actions =>{
+            res.status(200).json(actions)
+        })
+    }).catch(err => console.log(err))
+})
 
 server.post('/api/projects', (req,res) => {
-
+    const {name, description, completed} = req.body
+    projectModelDb.insert({name, description, completed}).then(() =>{
+        projectModelDb.get().then(projects => {
+            res.status(200).json(projects)
+        })
+    }).catch(err => console.log(err))
 })
 server.listen(port, err => {
     if(err) console.log(err)
